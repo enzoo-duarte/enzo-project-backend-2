@@ -4,9 +4,9 @@ const app = express();
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Ruta de ejemplo
+// Ruta solo de ejemplo
 app.get('/', (req, res) => {
-  res.send('¡Hola desde el backend!');
+  res.send('Hello from the server!');
 });
 
 module.exports = app;
