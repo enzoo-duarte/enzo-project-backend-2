@@ -1,15 +1,27 @@
 {
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.16.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  },
+  "name": "enzo-project-backend-2",
+  "version": "1.0.0",
+  "description": "Proyecto Backend Avanzado 2",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Enzo Duarte",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
