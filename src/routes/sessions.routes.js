@@ -5,15 +5,11 @@ const sessionsController = require('../controllers/sessions.controller');
 
 router.post('/login', sessionsController.login);
 
+// Desacoplar lógica: usar el controller
 router.get(
     '/current',
     passport.authenticate('jwt', { session: false }),
-    (req, res) => {
-        res.json({
-            message: 'Login successful!',
-            user: req.user
-        });
-    }
+    sessionsController.currentSession
 );
 
 module.exports = router;

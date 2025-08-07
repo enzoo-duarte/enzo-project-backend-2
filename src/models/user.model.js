@@ -29,11 +29,12 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
+        enum: ['user', 'admin'],
         default: 'user'
     }
 });
 
-// Middleware pre-save para encriptar la contraseña
+// Middleware pre-save para encriptar la password
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         return next();

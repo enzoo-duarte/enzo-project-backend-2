@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
+// Login: genera y retorna JWT
 exports.login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -13,7 +14,6 @@ exports.login = async (req, res) => {
         }
 
         const validPassword = await bcrypt.compare(password, user.password);
-
         if (!validPassword) {
             return res.status(401).json({ message: 'Invalid password' });
         }
@@ -25,8 +25,23 @@ exports.login = async (req, res) => {
         );
 
         res.json({ token });
-
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
+};
+
+// Current: retorna solo datos permitidos (DTO simple)
+exports.currentSession = (req, res) => {
+    const { first_name, last_name, email, role } = req.user;
+
+    const userDTO = {
+        name: `${first_name} ${last_name}`,
+        email,
+        role
+    };
+
+    res.json({
+        message: 'Current session retrieved',
+        user: userDTO
+    });
 };
