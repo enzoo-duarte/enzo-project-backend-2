@@ -4,7 +4,7 @@ const passport = require('passport');
 const authenticateJWT = passport.authenticate('jwt', { session: false });
 
 // Middleware para verificar el rol del usuario
-const authorizeRole = (...roles) => {
+const checkRole = (...roles) => {
     return (req, res, next) => {
         if (!req.user) {
             return res.status(401).json({ message: 'Unauthorized: User not authenticated.' });
@@ -20,5 +20,5 @@ const authorizeRole = (...roles) => {
 
 module.exports = {
     authenticateJWT,
-    authorizeRole
+    checkRole
 };
