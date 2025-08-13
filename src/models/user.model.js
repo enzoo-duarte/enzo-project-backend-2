@@ -34,7 +34,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// Middleware pre-save para encriptar la password
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         return next();
